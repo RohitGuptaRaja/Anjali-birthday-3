@@ -404,6 +404,34 @@
         <p>You deserve all the joy in the world—keep shining and spreading your beautiful energy.✨</p>
         <a href="#" class="goodbye-btn">Until We Meet Again 💝</a>
     </section>
+    <audio id="bgMusic" loop>
+  <source src="backgroundmusicforvideos-happy-birthday-334876.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  var music = document.getElementById('bgMusic');
+  
+  // Check karo agar gaana pichle page pe already chal raha tha
+  var trackTime = sessionStorage.getItem('songTime');
+  if (trackTime) {
+    music.currentTime = trackTime; // Gaana wahin se shuru hoga
+  }
+
+  // Play karne ka try karo
+  music.play().catch(function() {
+    // Agar browser allow na kare bina click ke, toh click ka wait karo
+    document.body.addEventListener('click', function() {
+      music.play();
+    }, { once: true });
+  });
+
+  // Har half-second mein time save karo taaki next page ko pata rahe gaana kahan tak pahocha
+  setInterval(function() {
+    if (!music.paused) {
+      sessionStorage.setItem('songTime', music.currentTime);
+    }
+  }, 500);
+</script>
 </body>
 
 </html>
