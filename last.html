@@ -404,6 +404,37 @@
         <p>You deserve all the joy in the world—keep shining and spreading your beautiful energy.✨</p>
         <a href="#" class="goodbye-btn">Until We Meet Again 💝</a>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+  window.onload = function() {
+    var duration = 4000; // 4 seconds tak confetti girega
+    var end = Date.now() + duration;
+
+    (function frame() {
+      // Left side se fire
+      confetti({
+        particleCount: 5,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+        colors: ['#ffb6c1', '#ff69b4', '#ffffff', '#ffc0cb'] 
+      });
+      // Right side se fire
+      confetti({
+        particleCount: 5,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+        colors: ['#ffb6c1', '#ff69b4', '#ffffff', '#ffc0cb']
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    }());
+  };
+</script>
     <audio id="bgMusic" loop>
   <source src="backgroundmusicforvideos-happy-birthday-334876.mp3" type="audio/mpeg">
 </audio>
