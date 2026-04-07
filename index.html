@@ -19,5 +19,20 @@
     <script src="script.js">
         
     </script>
+    
+    <audio id="bgMusic" loop>
+  <source src="tumhara-song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  // Jaise hi screen par kahin bhi click hoga, music start ho jayega
+  document.body.addEventListener('click', function() {
+    var music = document.getElementById('bgMusic');
+    if (music.paused) {
+      music.play();
+    }
+  }, { once: true }); // 'once: true' ka matlab sirf pehle click pe kaam karega
+</script>
+    
 </body>
 </html>
